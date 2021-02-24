@@ -1,0 +1,29 @@
+div {
+  padding-top: 50px;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  position: static;
+}
+.carriersFilter {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.sort {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.transfer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.price {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
