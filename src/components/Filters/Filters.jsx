@@ -1,21 +1,16 @@
 import style from './Filters.module.css';
 
-function Filters({ filter, onChange }) {
+function Filters({ filter, changeFilter, changeSort }) {
   const onPriceChangeFrom = (e) => {
-    onChange({ ...filter, price: { ...filter.price, from: e } });
+    changeFilter({ ...filter, price: { ...filter.price, from: e } });
   };
   const onPriceChangeTo = (j) => {
-    onChange({ ...filter, price: { ...filter.price, to: j } });
+    changeFilter({ ...filter, price: { ...filter.price, to: j } });
   };
-  const byRise = () => {
-    onChange({ ...filter, sort: 'ASC' });
+  const onChange = (e) => {
+    changeSort({ ...filter, sort: e });
   };
-  const byDesc = () => {
-    onChange({ ...filter, sort: 'DESC' });
-  };
-  const byTime = () => {
-    onChange({ ...filter, sort: 'time' });
-  };
+
   return (
     <div className={style.main}>
       <div className={style.sort}>
@@ -23,30 +18,27 @@ function Filters({ filter, onChange }) {
         <div>
           <input
             type="radio"
-            checked
-            name="dva"
-            value={filter.sort}
-            onClick={byRise}
+            checked={filter.sort === 'ASC'}
+            value="ASC"
+            onChange={(e) => onChange(e.target.value)}
           />{' '}
           - по возрастанию цены
         </div>
         <div>
           <input
             type="radio"
-            value={filter.sort}
-            checked
-            name="dva"
-            onClick={byDesc}
+            checked={filter.sort === 'DESC'}
+            value="DESC"
+            onChange={(e) => onChange(e.target.value)}
           />{' '}
           - по убыванию цены
         </div>
         <div>
           <input
             type="radio"
-            value={filter.sort}
-            checked
-            name="dva"
-            onChange={byTime}
+            checked={filter.sort === 'TIME'}
+            value="TIME"
+            onChange={(e) => onChange(e.target.value)}
           />{' '}
           - по времени суток
         </div>
@@ -66,7 +58,7 @@ function Filters({ filter, onChange }) {
           От{' '}
           <input
             type="number"
-            step="10000"
+            // step="10000"
             value={filter.price.from}
             onChange={(e) => onPriceChangeFrom(e.target.value)}
           />
@@ -75,7 +67,7 @@ function Filters({ filter, onChange }) {
           До{' '}
           <input
             type="number"
-            step="10000"
+            // step="10000"
             value={filter.price.to}
             onChange={(j) => onPriceChangeTo(j.target.value)}
           />
