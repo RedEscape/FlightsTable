@@ -79,7 +79,7 @@ function Backward({ backward, carrier, duration }) {
           </div>
           <div className={style.arrival}></div>
         </div>
-        <div> Рейсп выполняет: {carrier} </div>
+        <div> Рейс выполняет: {carrier} </div>
       </div>
     </div>
   );
