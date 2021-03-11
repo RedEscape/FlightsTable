@@ -58,7 +58,7 @@ function Filters({ filter, changeFilter, changeSort }) {
           От{' '}
           <input
             type="number"
-            // step="10000"
+            step="10000"
             value={filter.price.from}
             onChange={(e) => onPriceChangeFrom(e.target.value)}
           />
@@ -67,7 +67,7 @@ function Filters({ filter, changeFilter, changeSort }) {
           До{' '}
           <input
             type="number"
-            // step="10000"
+            step="10000"
             value={filter.price.to}
             onChange={(j) => onPriceChangeTo(j.target.value)}
           />
